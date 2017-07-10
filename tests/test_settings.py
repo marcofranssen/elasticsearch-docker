@@ -12,6 +12,10 @@ def test_setting_cluster_name_with_an_environment_variable(elasticsearch):
     assert elasticsearch.get_root_page()['cluster_name'] == ('docker-test-cluster')
 
 
+def test_setting_discovery_zen_minimum_master_nodes_with_an_environment_variable(elasticsearch):
+    assert elasticsearch.get_root_page()['discovery_zen_minimum_master_nodes'] == (2)
+
+
 def test_setting_heapsize_with_an_environment_variable(elasticsearch):
     # The fixture for this test comes from tests/docker-compose.yml.
     #
